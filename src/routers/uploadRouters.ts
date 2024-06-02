@@ -4,7 +4,7 @@ import uploadControllers from "../controllers/uploadControllers";
 import multer from "multer";
 
 const uploadRouters = express.Router();
-const upload = multer({ storage: multer.memoryStorage() });
+const upload = multer({ dest: "uploads/" });
 
 uploadRouters.post("/", upload.single("file"), uploadControllers.uploadFile);
 

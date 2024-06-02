@@ -8,7 +8,9 @@ import mainPath from "path";
 const uploadControllers = {
   uploadFile: async (req: Request, res: Response) => {
     try {
-      const { filename, path, originalname } = req.file;
+      const { path, originalname } = req.file;
+      console.log("path ---", req);
+
       const ext = mainPath.extname(req.file.originalname);
       const baseName = mainPath.basename(originalname, ext);
 
@@ -19,7 +21,7 @@ const uploadControllers = {
         slug = slug + uid.rnd();
       }
       await File.create({
-        filename,
+        filename: originalname,
         path,
         slug,
       });

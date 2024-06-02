@@ -20,7 +20,8 @@ const path_1 = __importDefault(require("path"));
 const uploadControllers = {
     uploadFile: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const { filename, path, originalname } = req.file;
+            const { path, originalname } = req.file;
+            console.log("path ---", req);
             const ext = path_1.default.extname(req.file.originalname);
             const baseName = path_1.default.basename(originalname, ext);
             let slug = (0, slugify_1.default)(baseName, { lower: true });
@@ -30,7 +31,7 @@ const uploadControllers = {
                 slug = slug + uid.rnd();
             }
             yield fileModel_1.default.create({
-                filename,
+                filename: originalname,
                 path,
                 slug,
             });

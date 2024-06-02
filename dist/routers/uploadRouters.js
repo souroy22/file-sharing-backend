@@ -8,7 +8,7 @@ const express_1 = __importDefault(require("express"));
 const uploadControllers_1 = __importDefault(require("../controllers/uploadControllers"));
 const multer_1 = __importDefault(require("multer"));
 const uploadRouters = express_1.default.Router();
-const upload = (0, multer_1.default)({ storage: multer_1.default.memoryStorage() });
+const upload = (0, multer_1.default)({ dest: "uploads/" });
 uploadRouters.post("/", upload.single("file"), uploadControllers_1.default.uploadFile);
 exports.default = uploadRouters;
 //# sourceMappingURL=uploadRouters.js.map
