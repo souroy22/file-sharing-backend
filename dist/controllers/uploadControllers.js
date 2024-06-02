@@ -41,6 +41,7 @@ const uploadControllers = {
             });
         }
         catch (error) {
+            console.log("Error", error.message);
             return res.status(500).json({ error: error.message });
         }
     }),

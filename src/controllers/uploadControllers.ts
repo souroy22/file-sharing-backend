@@ -29,6 +29,7 @@ const uploadControllers = {
         data: { link: newLink, slug },
       });
     } catch (error) {
+      console.log("Error", error.message);
       return res.status(500).json({ error: error.message });
     }
   },
